@@ -1,18 +1,11 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tourism.Application.Abstraction;
-using Tourism.Application.UseCases.FoydalanuvchiUseCases.Commands;
 using Tourism.Application.UseCases.TolovUseCases.Commands;
-using Toursim.Domain.Enums;
 
 namespace Tourism.Application.UseCases.TolovUseCases.Handlers
 {
-    public class UpdateTolovCommandHandler:IRequestHandler<UpdateTolovCommand,string>
+    public class UpdateTolovCommandHandler : IRequestHandler<UpdateTolovCommand, string>
     {
         private ITourismDbContext _tourism;
 
