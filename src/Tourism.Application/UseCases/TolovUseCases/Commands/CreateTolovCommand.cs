@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using System.ComponentModel.DataAnnotations.Schema;
+using Toursim.Domain.Entities;
 
 namespace Tourism.Application.UseCases.TolovUseCases.Commands
 {
-    internal class CreateTolovCommand
+    public class CreateTolovCommand:IRequest<Tolov>
     {
+        public double tolovQiymati { get; set; }
+        public int foydalanuvchiId { get; set; }
     }
 }
