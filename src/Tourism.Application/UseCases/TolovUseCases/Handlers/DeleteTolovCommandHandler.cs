@@ -1,17 +1,11 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tourism.Application.Abstraction;
-using Tourism.Application.UseCases.FoydalanuvchiUseCases.Commands;
 using Tourism.Application.UseCases.TolovUseCases.Commands;
 
 namespace Tourism.Application.UseCases.TolovUseCases.Handlers
 {
-    public class DeleteTolovCommandHandler:IRequestHandler<DeleteTolovCommand,string>
+    public class DeleteTolovCommandHandler : IRequestHandler<DeleteTolovCommand, string>
     {
         private readonly ITourismDbContext _tourism;
 
