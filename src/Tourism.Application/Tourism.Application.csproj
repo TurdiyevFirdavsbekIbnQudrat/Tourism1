@@ -17,8 +17,4 @@
     <ProjectReference Include="..\Toursim.Domain\Toursim.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UseCases\FikrUseCases\Handlers\" />
-  </ItemGroup>
-
 </Project>
