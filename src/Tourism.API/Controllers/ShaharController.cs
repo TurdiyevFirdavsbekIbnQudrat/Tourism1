@@ -41,7 +41,7 @@ namespace Tourism.API.Controllers
 
         //[Authorize(Roles = "Admin")]
         [HttpDelete]
-        public async ValueTask<IActionResult> DeleteFoydalanuvchiById(int id)
+        public async ValueTask<IActionResult> DeleteShaharlarById(int id)
         {
             DeleteShaharlarCommand command = new DeleteShaharlarCommand() { id = id };
             return Ok(await mediator.Send(command));
@@ -49,7 +49,7 @@ namespace Tourism.API.Controllers
 
         //[Authorize(Roles = "Admin")]
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateFoydalanuvchiById(UpdateShaharDto request, int id)
+        public async ValueTask<IActionResult> UpdateShaharlarById(UpdateShaharDto request, int id)
         {
             UpdateShaharlarCommand command = new UpdateShaharlarCommand()
             {
