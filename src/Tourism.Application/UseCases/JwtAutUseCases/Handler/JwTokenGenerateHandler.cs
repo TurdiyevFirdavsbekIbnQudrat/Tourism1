@@ -17,7 +17,7 @@ namespace Tourism.Application.UseCases.JwtAutUseCases.Handler
             _configuration = configuration;
         }
 
-        public Task<string> Handle(JwtCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(JwtCommand request, CancellationToken cancellationToken)
         {
             string username = request.username;
             string role = request.role;
