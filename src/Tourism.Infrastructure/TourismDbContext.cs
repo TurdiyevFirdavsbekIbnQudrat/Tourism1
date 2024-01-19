@@ -18,10 +18,11 @@ namespace Tourism.Infrastructure
                 if (!databaseCreator.HasTables()) databaseCreator.CreateTablesAsync();
             }
         }
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.ApplyConfiguration(new FoydalanuvchiTypeConfiguration());
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new FoydalanuvchiTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new AdminTypeConfiguration());
+        }
         async ValueTask<int> ITourismDbContext.SaveChangesAsync(CancellationToken cancellationToken)
         {
             return await base.SaveChangesAsync(cancellationToken);

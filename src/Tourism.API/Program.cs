@@ -102,8 +102,6 @@ if (app.Environment.IsDevelopment())
 }
 
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 // Configure the HTTP request pipeline.
 

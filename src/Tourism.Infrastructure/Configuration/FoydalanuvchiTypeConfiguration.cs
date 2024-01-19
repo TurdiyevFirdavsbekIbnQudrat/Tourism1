@@ -20,7 +20,6 @@ namespace Tourism.Infrastructure.Configuration
                     parol="12345678",
                     role=Role.foydalanuvchi,
                     telNomer="+998948663667",
-                    foydalanuvchiVaShaharlar=null,
                   
                 },
                 new Foydalanuvchi()
@@ -33,7 +32,6 @@ namespace Tourism.Infrastructure.Configuration
                     parol = "12345678",
                     role = Role.foydalanuvchi,
                     telNomer = "+998978683661",
-                    foydalanuvchiVaShaharlar = null,
                     
                 }
                 );
