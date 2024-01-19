@@ -47,7 +47,7 @@ namespace Tourism.Application.UseCases.JwtAutUseCases.Handler
                 _configuration["JWT:ValidIssuer"],
                 _configuration["JWT:ValidAudience"],
                 claims,
-                expires: DateTime.Now.AddMinutes(1),
+                expires: DateTime.Now.AddMinutes(200),
                 signingCredentials: credentials
                 );
 

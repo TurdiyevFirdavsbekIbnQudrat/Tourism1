@@ -32,6 +32,7 @@ namespace Tourism.Infrastructure
         public DbSet<Shahar> shaharlar { get; set; }
         public DbSet<Tolov> tolovlar { get; set; }
         public DbSet<Xizmatlar> xizmatlar { get; set; }
+        public DbSet<Admin> adminlar { get; set; }
     }
     
 }

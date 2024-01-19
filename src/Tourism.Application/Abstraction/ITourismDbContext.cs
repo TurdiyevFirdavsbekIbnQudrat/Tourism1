@@ -11,6 +11,7 @@ namespace Tourism.Application.Abstraction
         DbSet<Shahar> shaharlar {  get; set; }
         DbSet<Tolov> tolovlar { get; set; }
         DbSet<Xizmatlar> xizmatlar { get; set; }
+        DbSet<Admin> adminlar { get; set; }
         public ValueTask<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
