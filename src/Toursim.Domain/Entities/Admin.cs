@@ -9,7 +9,7 @@ namespace Toursim.Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
+        public int id { get; set; }
         [Column("ism")]
         public string ism { get; set; }
         [Column("familiya")]

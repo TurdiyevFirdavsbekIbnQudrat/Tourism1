@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Toursim.Domain.Entities;
 
 namespace Tourism.Infrastructure.Configuration
@@ -15,8 +10,9 @@ namespace Tourism.Infrastructure.Configuration
         {
             builder.HasData(
 
-               new Admin() {
-                   Id = 1,
+               new Admin()
+               {
+                   id = 1,
                    email = "admin@gmail.com",
                    familiya = "Turdiyev",
                    ism = "Firdavsbek",

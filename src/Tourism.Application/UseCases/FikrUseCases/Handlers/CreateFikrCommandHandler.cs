@@ -25,7 +25,7 @@ namespace Tourism.Application.UseCases.FikrUseCases.Handlers
         {
             var command = new Fikr()
             {
-                foydalanunchiId = request.foydalanunchiId,
+                foydalanuvchiId = request.foydalanunchiId,
                 foydalanuvchiFikr = request.foydalanuvchiFikr
             };
             try

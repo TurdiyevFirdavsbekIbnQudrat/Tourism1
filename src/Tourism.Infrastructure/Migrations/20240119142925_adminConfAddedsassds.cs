@@ -5,7 +5,7 @@
 namespace Tourism.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class dasdad : Migration
+    public partial class adminConfAddedsassds : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

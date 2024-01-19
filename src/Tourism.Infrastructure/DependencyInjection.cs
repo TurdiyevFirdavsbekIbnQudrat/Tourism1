@@ -12,7 +12,7 @@ namespace Tourism.Infrastructure
          //   string connectionsString = "Server=DESKTOP-HUHB6EP;Database=TouristDb;Trusted_Connection=True;TrustServerCertificate=True;";
             services.AddDbContext<ITourismDbContext, TourismDbContext>(options =>
              {
-                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), providerOptions => providerOptions.EnableRetryOnFailure());
              });
 
             return services;

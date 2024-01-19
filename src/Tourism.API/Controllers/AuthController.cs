@@ -11,46 +11,38 @@ namespace Tourism.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IMediator _mediatr;
-        private readonly ITourismDbContext _tourism;
+
+        public AuthController(IMediator mediatr)
+        {
+            _mediatr = mediatr;
+        }
+
         [HttpPost]
-        public async ValueTask<IActionResult> GetToken(string email, string role)
+        public async ValueTask<IActionResult> GetToken(JwtCheckCommand request)
         {
-            if (role.Trim().ToLower().Equals("admin"))
+            var checkRole = await _mediatr.Send(request);
+            if (!checkRole.Equals("mavjud emas!!!"))
             {
-                var x = await _tourism.adminlar.FirstOrDefaultAsync(x => x.email == email);
-                if (x == null)
+                JwtCommand command = new JwtCommand()
                 {
-                    return Ok("ma'lumot topilmadi");
-                }
-                else
-                {
-
-                    return Ok(getToken(email, role));
-                }
+                    email = request.email,
+                    role = checkRole
+                };
+                var d = await _mediatr.Send(command);
+                return Ok(d);
             }
-            if (role.Trim().ToLower().Equals("foydalanuvchi"))
-            {
-                var x = await _tourism.foydalanuvchilar.FirstOrDefaultAsync(x => x.email == email);
-                if (x == null)
-                {
-                    return Ok("ma'lumot topilmadi");
-                }
-                else
-                {
-                    return Ok(getToken(email, role));
-                }
-            }
-            return Ok("bunday ma'lumot mavjud emas");
-        }
-        private async ValueTask<string> getToken(string username, string role)
-        {
 
-            JwtCommand request = new JwtCommand()
-            {
-                username = username,
-                role = role,
-            };
-            return await _mediatr.Send(request);
+                //JwtCommand request = new JwtCommand()
+                //{
+                //    username = email,
+                //    parol = parol,
+                //};
+           //if(!d.Equals("mavjud emas!!!"))
+           // {
+           //     return Ok(d);
+           // }
+            return Ok("mavjud emas!!!");
         }
+      
     }
 }

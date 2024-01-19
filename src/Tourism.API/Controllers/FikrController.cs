@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tourism.API.Dtos.FikrDto;
 using Tourism.Application.UseCases.FikrUseCases.Commands;
@@ -17,6 +18,8 @@ namespace Tourism.API.Controllers
             mediator = _mediator;
         }
         //    [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin,foydalanuvchi")]
         [HttpPost]
         public async ValueTask<IActionResult> CreateFikrAsync(CreateFikrCommand command)
         {
@@ -24,6 +27,8 @@ namespace Tourism.API.Controllers
             return Ok(result);
         }
         //  [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetAllFikrAsync()
         {
@@ -31,7 +36,9 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [HttpGet]
+
         public async ValueTask<IActionResult> GetFikrByIdAsync(int id)
         {
             GetByIdFikrCommand command = new GetByIdFikrCommand { id = id };
@@ -39,6 +46,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpDelete]
         public async ValueTask<IActionResult> DeleteFikrById(int id)
         {
@@ -47,6 +56,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpPut]
         public async ValueTask<IActionResult> UpdateFikrById(UpdateFikrDto request, int id)
         {

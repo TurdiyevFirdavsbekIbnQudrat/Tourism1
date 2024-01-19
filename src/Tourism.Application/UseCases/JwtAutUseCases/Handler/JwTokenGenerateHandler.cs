@@ -1,9 +1,11 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Tourism.Application.Abstraction;
 using Tourism.Application.UseCases.JwtAutUseCases.Command;
 
 namespace Tourism.Application.UseCases.JwtAutUseCases.Handler
@@ -11,18 +13,23 @@ namespace Tourism.Application.UseCases.JwtAutUseCases.Handler
     public class JwTokenGenerateHandler : IRequestHandler<JwtCommand, string>
     {
         private readonly IConfiguration _configuration;
-
-        public JwTokenGenerateHandler(IConfiguration configuration)
+        private readonly ITourismDbContext _tourism;
+        public JwTokenGenerateHandler(IConfiguration configuration, ITourismDbContext tourism )
         {
             _configuration = configuration;
+            _tourism = tourism;
         }
 
         public async Task<string> Handle(JwtCommand request, CancellationToken cancellationToken)
         {
-            string username = request.username;
+            string username = request.email;
             string role = request.role;
-        // token generatsiya qilamiz
-        
+
+
+            
+
+            // token generatsiya qilamiz
+
             // bu malumotlar
             var claims = new Claim[]
             {
@@ -55,6 +62,8 @@ namespace Tourism.Application.UseCases.JwtAutUseCases.Handler
 
             return tokenHandler.WriteToken(token);
         }
+
+        
     }
     
 }

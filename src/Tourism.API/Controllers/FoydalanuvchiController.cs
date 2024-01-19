@@ -1,5 +1,6 @@
 ﻿using Azure.Core;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tourism.API.Dtos.FoydalanuvchiDto;
@@ -20,6 +21,8 @@ namespace Tourism.API.Controllers
             mediator = _mediator;
         }
         //    [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin,foydalanuvchi")]
         [HttpPost]
         public async ValueTask<IActionResult> CreateFoydalanuvchiAsync(CreateFoydalanuvchiCommand command)
         {
@@ -27,6 +30,8 @@ namespace Tourism.API.Controllers
             return Ok(result);
         }
         //  [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetAllFoydalanuvchilarAsync()
         {
@@ -34,6 +39,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetFoydalanuvchiByIdAsync(int id)
         {
@@ -42,6 +49,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin,foydalanuvchi")]
         [HttpDelete]
         public async ValueTask<IActionResult> DeleteFoydalanuvchiById(int id)
         {
@@ -50,6 +59,7 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin,foydalanuvchi")]
         [HttpPut]
         public async ValueTask<IActionResult> UpdateFoydalanuvchiById(UpdateFoydalanuvchiDto request, int id)
         {

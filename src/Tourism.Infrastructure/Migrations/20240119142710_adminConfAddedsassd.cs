@@ -2,16 +2,35 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Tourism.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class foydalanuvchiQoshildi : Migration
+    public partial class adminConfAddedsassd : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
                 name: "dbo");
+
+            migrationBuilder.CreateTable(
+                name: "Admin",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ism = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    familiya = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    parol = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admin", x => x.id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Fikr",
@@ -135,6 +154,22 @@ namespace Tourism.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                schema: "dbo",
+                table: "Admin",
+                columns: new[] { "id", "email", "familiya", "ism", "parol" },
+                values: new object[] { 1, "admin@gmail.com", "Turdiyev", "Firdavsbek", "12345678" });
+
+            migrationBuilder.InsertData(
+                schema: "dbo",
+                table: "Foydalanuvchi",
+                columns: new[] { "id", "condition", "email", "familiya", "ism", "parol", "role", "telNomer" },
+                values: new object[,]
+                {
+                    { 1, 0, "Firdavs@gmail.com", "Turdiyev", "Firdavs", "12345678", 0, "+998948663667" },
+                    { 2, 0, "Quvvat@gmail.com", "Turdiyev", "Quvvat", "12345678", 0, "+998978683661" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_FoydalanuvchiVaShahar_foydalanuvchiId",
                 schema: "dbo",
@@ -157,6 +192,10 @@ namespace Tourism.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Admin",
+                schema: "dbo");
+
             migrationBuilder.DropTable(
                 name: "Fikr",
                 schema: "dbo");

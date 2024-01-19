@@ -18,7 +18,7 @@ namespace Toursim.Domain.Entities
         [Column("foydalanuvchiFikr")]
         public string foydalanuvchiFikr { get; set; }
         [Column("foydalanuvchiId")]
-        public int foydalanunchiId { get; set; }
+        public int foydalanuvchiId { get; set; }
         //[ForeignKey("foydalanuvchiId")]
         //public Foydalanuvchi Foydalanuvchi {  get; set; }
     }

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tourism.API.Dtos.ShaharDto;
 using Tourism.Application.UseCases.FoydalanuvchiUseCases.Queries;
@@ -17,6 +18,7 @@ namespace Tourism.API.Controllers
         {
             mediator = _mediator;
         }
+        [Authorize(Roles = "admin")]
         //    [Authorize(Roles = "Admin")]
         [HttpPost]
         public async ValueTask<IActionResult> CreateShaharlarAsync(CreateShaharlarCommand command)
@@ -25,6 +27,8 @@ namespace Tourism.API.Controllers
             return Ok(result);
         }
         //  [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetAllShaharlarAsync()
         {
@@ -32,6 +36,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetShaharlarByIdAsync(int id)
         {
@@ -40,6 +46,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpDelete]
         public async ValueTask<IActionResult> DeleteShaharlarById(int id)
         {
@@ -48,6 +56,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpPut]
         public async ValueTask<IActionResult> UpdateShaharlarById(UpdateShaharDto request, int id)
         {

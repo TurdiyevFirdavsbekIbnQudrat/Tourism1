@@ -27,7 +27,7 @@ namespace Tourism.Application.UseCases.FikrUseCases.Handlers
             if (fikr != null)
             {
                 fikr.foydalanuvchiFikr = request.foydalanuvchiFikr;
-                fikr.foydalanunchiId = request.foydalanunchiId;
+                fikr.foydalanuvchiId = request.foydalanunchiId;
                 try
                 {
                     _tourism.fikrlar.Update(fikr);

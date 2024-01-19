@@ -23,12 +23,12 @@ namespace Tourism.Infrastructure.Migrations
 
             modelBuilder.Entity("Toursim.Domain.Entities.Admin", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -50,9 +50,19 @@ namespace Tourism.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("parol");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Admin", "dbo");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            email = "admin@gmail.com",
+                            familiya = "Turdiyev",
+                            ism = "Firdavsbek",
+                            parol = "12345678"
+                        });
                 });
 
             modelBuilder.Entity("Toursim.Domain.Entities.Fikr", b =>
@@ -64,14 +74,14 @@ namespace Tourism.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int>("foydalanunchiId")
-                        .HasColumnType("int")
-                        .HasColumnName("foydalanuvchiId");
-
                     b.Property<string>("foydalanuvchiFikr")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("foydalanuvchiFikr");
+
+                    b.Property<int>("foydalanuvchiId")
+                        .HasColumnType("int")
+                        .HasColumnName("foydalanuvchiId");
 
                     b.HasKey("id");
 
@@ -123,6 +133,30 @@ namespace Tourism.Infrastructure.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Foydalanuvchi", "dbo");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            condition = 0,
+                            email = "Firdavs@gmail.com",
+                            familiya = "Turdiyev",
+                            ism = "Firdavs",
+                            parol = "12345678",
+                            role = 0,
+                            telNomer = "+998948663667"
+                        },
+                        new
+                        {
+                            id = 2,
+                            condition = 0,
+                            email = "Quvvat@gmail.com",
+                            familiya = "Turdiyev",
+                            ism = "Quvvat",
+                            parol = "12345678",
+                            role = 0,
+                            telNomer = "+998978683661"
+                        });
                 });
 
             modelBuilder.Entity("Toursim.Domain.Entities.FoydalanuvchiVaShahar", b =>

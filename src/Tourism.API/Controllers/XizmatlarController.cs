@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tourism.API.Dtos.XizmatlarDto;
 using Tourism.Application.UseCases.XizmatlarUseCases.Commands;
@@ -17,6 +18,8 @@ namespace Tourism.API.Controllers
             mediator = _mediator;
         }
         //    [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async ValueTask<IActionResult> CreateXizmatlarAsync(CreateXizmatlarCommand command)
         {
@@ -24,6 +27,8 @@ namespace Tourism.API.Controllers
             return Ok(result);
         }
         //  [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetAllXizmatlarAsync()
         {
@@ -31,6 +36,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetXizmatlarByIdAsync(int id)
         {
@@ -39,6 +46,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpDelete]
         public async ValueTask<IActionResult> DeleteXizmatlarById(int id)
         {
@@ -47,6 +56,8 @@ namespace Tourism.API.Controllers
         }
 
         //[Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "admin")]
         [HttpPut]
         public async ValueTask<IActionResult> UpdateXizmatlarById(UpdateXizmatlarDto request, int id)
         {
