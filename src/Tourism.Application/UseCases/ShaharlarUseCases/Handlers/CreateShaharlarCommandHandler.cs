@@ -24,7 +24,7 @@ namespace Tourism.Application.UseCases.ShaharlarUseCases.Handlers
             try
             {
                 await _tourism.shaharlar.AddAsync(command);
-                _tourism.SaveChangesAsync(cancellationToken);
+                await _tourism.SaveChangesAsync(cancellationToken);
                 return command;
             }
             catch

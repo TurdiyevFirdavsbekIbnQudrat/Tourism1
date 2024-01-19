@@ -10,7 +10,7 @@ using Toursim.Domain.Enums;
 
 namespace Tourism.API.Controllers
 {
-    [Route("api/foydalanuvchi")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class FoydalanuvchiController : ControllerBase
     {

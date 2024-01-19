@@ -7,7 +7,7 @@ using Tourism.Application.UseCases.FikrUseCases.Queries;
 
 namespace Tourism.API.Controllers
 {
-    [Route("api/fikr")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class FikrController : ControllerBase
     {

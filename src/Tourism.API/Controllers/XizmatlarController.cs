@@ -7,7 +7,7 @@ using Tourism.Application.UseCases.XizmatlarUseCases.Queries;
 
 namespace Tourism.API.Controllers
 {
-    [Route("api/xizmatlar")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class XizmatlarController : ControllerBase
     {

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Tourism.API.Addictional.RasmUchun;
 using Tourism.API.Dtos.ShaharDto;
 using Tourism.Application.UseCases.FoydalanuvchiUseCases.Queries;
 using Tourism.Application.UseCases.ShaharlarUseCases.Commands;
@@ -8,22 +9,29 @@ using Tourism.Application.UseCases.ShaharlarUseCases.Queries;
 
 namespace Tourism.API.Controllers
 {
-    [Route("api/shahar")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ShaharController : ControllerBase
     {
         private readonly IMediator mediator;
+        private readonly IRasmPlace _rasmp;
 
-        public ShaharController(IMediator _mediator)
+        public ShaharController(IMediator _mediator, IRasmPlace rasmp)
         {
             mediator = _mediator;
+            _rasmp = rasmp;
         }
         [Authorize(Roles = "admin")]
         //    [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async ValueTask<IActionResult> CreateShaharlarAsync([FromForm] CreateShaharlarCommand command)
+        public async ValueTask<IActionResult> CreateShaharlarAsync([FromForm] CreateShaharDto command)
         {
-            var result = await mediator.Send(command);
+            CreateShaharlarCommand request = new CreateShaharlarCommand()
+            {
+                rasm = await _rasmp.GetRasm(command.rasm),
+                nomi = command.nomi
+            };
+            var result = await mediator.Send(request);
             return Ok(result);
         }
         //  [Authorize(Roles = "Admin")]
@@ -59,15 +67,15 @@ namespace Tourism.API.Controllers
 
         [Authorize(Roles = "admin")]
         [HttpPut]
-        public async ValueTask<IActionResult> UpdateShaharlarById(UpdateShaharDto request, int id)
+        public async ValueTask<IActionResult> UpdateShaharlarById(UpdateShaharDto command, int id)
         {
-            UpdateShaharlarCommand command = new UpdateShaharlarCommand()
+            UpdateShaharlarCommand request = new UpdateShaharlarCommand()
             {
-                nomi = request.nomi,
-                rasm = request.rasm,
+                nomi = command.nomi,
+                rasm = await _rasmp.GetRasm(command.rasm),
                 id = id,
             };
-            return Ok(await mediator.Send(command));
+            return Ok(await mediator.Send(request));
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace Tourism.API.Addictional
+﻿using Microsoft.AspNetCore.Hosting;
+
+namespace Tourism.API.Addictional.RasmUchun
 {
-    public class RasmPlace
+    public class RasmPlace:IRasmPlace
     {
         private readonly IWebHostEnvironment webHostEnvironment;
         public RasmPlace(IWebHostEnvironment webHostBuilder)
