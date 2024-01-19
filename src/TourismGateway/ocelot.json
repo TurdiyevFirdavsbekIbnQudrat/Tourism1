@@ -2,7 +2,7 @@
   "Routes": [
     // fikr
     {
-      "UpstreamPathTemplate": "/fikr",
+      "UpstreamPathTemplate": "/Fikr/CreateFikr",
       "UpstreamHttpMethod": [ "Post", "GET" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
