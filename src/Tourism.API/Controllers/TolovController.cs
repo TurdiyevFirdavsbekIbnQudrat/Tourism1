@@ -7,7 +7,7 @@ using Tourism.Application.UseCases.TolovUseCases.Queries;
 
 namespace Tourism.API.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/tolov")]
     [ApiController]
     public class TolovController : ControllerBase
     {

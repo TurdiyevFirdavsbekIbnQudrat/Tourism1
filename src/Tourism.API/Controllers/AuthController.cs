@@ -1,7 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Tourism.Application.Abstraction;
 using Tourism.Application.UseCases.JwtAutUseCases.Command;
 
 namespace Tourism.API.Controllers
@@ -32,17 +30,17 @@ namespace Tourism.API.Controllers
                 return Ok(d);
             }
 
-                //JwtCommand request = new JwtCommand()
-                //{
-                //    username = email,
-                //    parol = parol,
-                //};
-           //if(!d.Equals("mavjud emas!!!"))
-           // {
-           //     return Ok(d);
-           // }
+            //JwtCommand request = new JwtCommand()
+            //{
+            //    username = email,
+            //    parol = parol,
+            //};
+            //if(!d.Equals("mavjud emas!!!"))
+            // {
+            //     return Ok(d);
+            // }
             return Ok("mavjud emas!!!");
         }
-      
+
     }
 }

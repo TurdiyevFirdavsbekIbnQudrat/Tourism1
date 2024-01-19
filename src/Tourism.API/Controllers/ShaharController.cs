@@ -8,7 +8,7 @@ using Tourism.Application.UseCases.ShaharlarUseCases.Queries;
 
 namespace Tourism.API.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/shahar")]
     [ApiController]
     public class ShaharController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace Tourism.API.Controllers
         [Authorize(Roles = "admin")]
         //    [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async ValueTask<IActionResult> CreateShaharlarAsync(CreateShaharlarCommand command)
+        public async ValueTask<IActionResult> CreateShaharlarAsync([FromForm] CreateShaharlarCommand command)
         {
             var result = await mediator.Send(command);
             return Ok(result);

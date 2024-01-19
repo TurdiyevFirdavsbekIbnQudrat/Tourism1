@@ -1,0 +1,129 @@
+{
+  "Routes": [
+    // fikr
+    {
+      "UpstreamPathTemplate": "/fikr",
+      "UpstreamHttpMethod": [ "Post", "GET" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/fikr"
+    },
+    {
+      "UpstreamPathTemplate": "/fikr/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/fikr/{id}"
+    },
+    //foydalanuvchi
+    {
+      "UpstreamPathTemplate": "/foydalanuvchi",
+      "UpstreamHttpMethod": [ "Post", "GET" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/foydalanuvchi"
+    },
+    {
+      "UpstreamPathTemplate": "/foydalanuvchi/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/foydalanuvchi/{id}"
+    },
+    //shahar
+    {
+      "UpstreamPathTemplate": "/shahar",
+      "UpstreamHttpMethod": [ "Post", "GET" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/shahar"
+    },
+    {
+      "UpstreamPathTemplate": "/shahar/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/shahar/{id}"
+    },
+    //tolov
+    {
+      "UpstreamPathTemplate": "/tolov",
+      "UpstreamHttpMethod": [ "Post", "GET" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/tolov"
+    },
+    {
+      "UpstreamPathTemplate": "/tolov/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/tolov/{id}"
+    },
+    //xizmatlar
+    {
+      "UpstreamPathTemplate": "/xizmatlar",
+      "UpstreamHttpMethod": [ "Post", "GET" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/xizmatlar"
+    },
+    {
+      "UpstreamPathTemplate": "/xizmatlar/{id}",
+      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fikr.api",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/xizmatlar/{id}"
+    }
+  ]
+}
