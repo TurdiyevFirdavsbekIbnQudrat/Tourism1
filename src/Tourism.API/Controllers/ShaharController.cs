@@ -6,6 +6,7 @@ using Tourism.API.Dtos.ShaharDto;
 using Tourism.Application.UseCases.FoydalanuvchiUseCases.Queries;
 using Tourism.Application.UseCases.ShaharlarUseCases.Commands;
 using Tourism.Application.UseCases.ShaharlarUseCases.Queries;
+using Toursim.Domain.Entities;
 
 namespace Tourism.API.Controllers
 {
@@ -40,7 +41,19 @@ namespace Tourism.API.Controllers
         [HttpGet]
         public async ValueTask<IActionResult> GetAllShaharlarAsync()
         {
-            return Ok(await mediator.Send(new GetAllShaharlarCommand()));
+           List<GetAllShaharDto> getAll = new List<GetAllShaharDto>(); 
+           IEnumerable<Shahar> result = await mediator.Send(new GetAllShaharlarCommand());
+           foreach(Shahar shahar in result)
+            {
+                GetAllShaharDto shaharDto = new GetAllShaharDto()
+                {
+                    id = shahar.id,
+                    nomi = shahar.nomi,
+                    rasm = shahar.rasm
+                };
+                getAll.Add(shaharDto);
+            }
+           return Ok(getAll);
         }
 
         //[Authorize(Roles = "Admin")]

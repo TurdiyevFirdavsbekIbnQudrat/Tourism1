@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Tourism.API.Dtos.AuthDto;
 using Tourism.Application.UseCases.JwtAutUseCases.Command;
 
 namespace Tourism.API.Controllers
@@ -19,6 +20,7 @@ namespace Tourism.API.Controllers
         public async ValueTask<IActionResult> GetToken(JwtCheckCommand request)
         {
             var checkRole = await _mediatr.Send(request);
+            string d = "";
             if (!checkRole.Equals("mavjud emas!!!"))
             {
                 JwtCommand command = new JwtCommand()
@@ -26,8 +28,8 @@ namespace Tourism.API.Controllers
                     email = request.email,
                     role = checkRole
                 };
-                var d = await _mediatr.Send(command);
-                return Ok(d);
+                 d = await _mediatr.Send(command);
+                
             }
 
             //JwtCommand request = new JwtCommand()
@@ -39,7 +41,15 @@ namespace Tourism.API.Controllers
             // {
             //     return Ok(d);
             // }
-            return Ok("mavjud emas!!!");
+            AuthDto auth = new AuthDto()
+            {
+                token = d
+            };
+            if (!auth.Equals("mavjud emas!!!"))
+            {
+                return Ok(auth);
+            }
+            return BadRequest("mavjud emas!!!");
         }
 
     }
