@@ -10,6 +10,13 @@ using Tourism.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost";
+    options.InstanceName = "local";
+});
+
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAplication();
 

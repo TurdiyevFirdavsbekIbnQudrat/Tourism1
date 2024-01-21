@@ -31,7 +31,7 @@ namespace Tourism.API.Controllers
         }
         //  [Authorize(Roles = "Admin")]
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         public async ValueTask<IActionResult> GetAllFoydalanuvchilarAsync()
         {

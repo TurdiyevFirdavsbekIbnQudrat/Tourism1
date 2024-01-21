@@ -4,7 +4,7 @@
     {
         public string nomi { get; set; }
         public int narxi { get; set; }
-        public string rasm { get; set; }
+        public IFormFile rasm { get; set; }
         public string boshlanishVaqti { get; set; }
         public string tugashVaqti { get; set; }
         public string haqida { get; set; }

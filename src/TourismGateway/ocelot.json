@@ -3,127 +3,177 @@
     // fikr
     {
       "UpstreamPathTemplate": "/Fikr/CreateFikr",
-      "UpstreamHttpMethod": [ "Post", "GET" ],
+      "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "fikr.api",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 7257
         }
       ],
-      "DownstreamPathTemplate": "/api/fikr"
+      "DownstreamPathTemplate": "/api/Fikr/CreateFikr"
+
     },
     {
-      "UpstreamPathTemplate": "/fikr/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+      "UpstreamPathTemplate": "/Fikr/GetAllFikr",
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "fikr.api",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 7257
         }
       ],
-      "DownstreamPathTemplate": "/api/fikr/{id}"
+      "DownstreamPathTemplate": "/api/Fikr/GetAllFikr"
+
+    },
+    {
+      "UpstreamPathTemplate": "/Fikr/GetFikrById/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7257
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Fikr/GetFikrById/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/Fikr/UpdateFikrById/{id}",
+      "UpstreamHttpMethod": [ "put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7257
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Fikr/UpdateFikrById/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/Fikr/DeleteFikrById/{id}",
+      "UpstreamHttpMethod": [ "delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7257
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Fikr/DeleteFikrById/{id}"
     },
     //foydalanuvchi
     {
-      "UpstreamPathTemplate": "/foydalanuvchi",
-      "UpstreamHttpMethod": [ "Post", "GET" ],
+      "UpstreamPathTemplate": "/Foydalanuvchi/CreateFoydalanuvchi",
+      "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "fikr.api",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 7257
         }
       ],
-      "DownstreamPathTemplate": "/api/foydalanuvchi"
+      "DownstreamPathTemplate": "/api/Foydalanuvchi/CreateFoydalanuvchi"
     },
     {
-      "UpstreamPathTemplate": "/foydalanuvchi/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+      "UpstreamPathTemplate": "/Foydalanuvchi/GetAllFoydalanuvchilar",
+      "UpstreamHttpMethod": [ "get" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "fikr.api",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 7257
         }
       ],
-      "DownstreamPathTemplate": "/api/foydalanuvchi/{id}"
+      "DownstreamPathTemplate": "/api/Foydalanuvchi/GetAllFoydalanuvchilar"
     },
-    //shahar
-    {
-      "UpstreamPathTemplate": "/shahar",
-      "UpstreamHttpMethod": [ "Post", "GET" ],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "fikr.api",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/api/shahar"
-    },
-    {
-      "UpstreamPathTemplate": "/shahar/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "fikr.api",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/api/shahar/{id}"
-    },
-    //tolov
-    {
-      "UpstreamPathTemplate": "/tolov",
-      "UpstreamHttpMethod": [ "Post", "GET" ],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "fikr.api",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/api/tolov"
-    },
-    {
-      "UpstreamPathTemplate": "/tolov/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "fikr.api",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/api/tolov/{id}"
-    },
-    //xizmatlar
-    {
-      "UpstreamPathTemplate": "/xizmatlar",
-      "UpstreamHttpMethod": [ "Post", "GET" ],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "fikr.api",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/api/xizmatlar"
-    },
-    {
-      "UpstreamPathTemplate": "/xizmatlar/{id}",
-      "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "fikr.api",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/api/xizmatlar/{id}"
-    }
+    //{
+    //  "UpstreamPathTemplate": "/foydalanuvchi/{id}",
+    //  "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "fikr.api",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/foydalanuvchi/{id}"
+    //},
+    ////shahar
+    //{
+    //  "UpstreamPathTemplate": "/shahar",
+    //  "UpstreamHttpMethod": [ "Post", "GET" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "fikr.api",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/shahar"
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/shahar/{id}",
+    //  "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "fikr.api",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/shahar/{id}"
+    //},
+    ////tolov
+    //{
+    //  "UpstreamPathTemplate": "/tolov",
+    //  "UpstreamHttpMethod": [ "Post", "GET" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "fikr.api",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/tolov"
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/tolov/{id}",
+    //  "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "fikr.api",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/tolov/{id}"
+    //},
+    ////xizmatlar
+    //{
+    //  "UpstreamPathTemplate": "/xizmatlar",
+    //  "UpstreamHttpMethod": [ "Post", "GET" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "fikr.api",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/xizmatlar"
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/xizmatlar/{id}",
+    //  "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "fikr.api",
+    //      "Port": 80
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/xizmatlar/{id}"
+    //}
   ]
 }
