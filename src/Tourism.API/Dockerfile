@@ -9,6 +9,9 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/Tourism.API/Tourism.API.csproj", "src/Tourism.API/"]
+COPY ["src/Tourism.Application/Tourism.Application.csproj", "src/Tourism.Application/"]
+COPY ["src/Toursim.Domain/Toursim.Domain.csproj", "src/Toursim.Domain/"]
+COPY ["src/Tourism.Infrastructure/Tourism.Infrastructure.csproj", "src/Tourism.Infrastructure/"]
 RUN dotnet restore "./src/Tourism.API/./Tourism.API.csproj"
 COPY . .
 WORKDIR "/src/src/Tourism.API"

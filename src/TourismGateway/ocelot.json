@@ -7,8 +7,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7257
+          "Host": "tourism.api",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/api/Fikr/CreateFikr"
@@ -20,8 +20,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7257
+          "Host": "tourism.api",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/api/Fikr/GetAllFikr"
@@ -33,8 +33,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7257
+          "Host": "tourism.api",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/api/Fikr/GetFikrById/{id}"
@@ -45,8 +45,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7257
+          "Host": "tourism.api",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/api/Fikr/UpdateFikrById/{id}"
@@ -57,8 +57,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7257
+          "Host": "tourism.api",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/api/Fikr/DeleteFikrById/{id}"
@@ -70,8 +70,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7257
+          "Host": "tourism.api",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/api/Foydalanuvchi/CreateFoydalanuvchi"
@@ -82,12 +82,12 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 7257
+          "Host": "tourism.api",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/api/Foydalanuvchi/GetAllFoydalanuvchilar"
-    },
+    }
     //{
     //  "UpstreamPathTemplate": "/foydalanuvchi/{id}",
     //  "UpstreamHttpMethod": [ "Delete", "Put", "Get" ],
@@ -175,5 +175,8 @@
     //  ],
     //  "DownstreamPathTemplate": "/api/xizmatlar/{id}"
     //}
-  ]
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8015"
+  }
 }

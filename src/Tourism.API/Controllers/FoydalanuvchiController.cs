@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Tourism.API.Dtos.FoydalanuvchiDto;
 using Tourism.Application.UseCases.FoydalanuvchiUseCases.Commands;
 using Tourism.Application.UseCases.FoydalanuvchiUseCases.Queries;
+using Toursim.Domain.Entities;
 using Toursim.Domain.Enums;
 
 namespace Tourism.API.Controllers
@@ -76,6 +77,12 @@ namespace Tourism.API.Controllers
                 id = id,
             };
             return Ok(await mediator.Send(command));
+        }
+        [HttpPut]
+        public async ValueTask<IActionResult> UpdateFoydalanuvchiByEmailIsm(UpdateByEmailNameCommand request)
+        {
+            Foydalanuvchi result = await mediator.Send(request);
+            return Ok(result);
         }
     }
 }

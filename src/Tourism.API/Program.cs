@@ -32,8 +32,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:4200",
-                                              "http://localhost:4201")
+                          policy
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .AllowAnyOrigin();
@@ -115,6 +114,7 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthentication();

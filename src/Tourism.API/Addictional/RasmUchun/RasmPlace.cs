@@ -13,12 +13,14 @@ namespace Tourism.API.Addictional.RasmUchun
         public async ValueTask<string> GetRasm(IFormFile rasm)
         {
             string extension = Path.GetExtension(rasm.FileName);
-            string path = webHostEnvironment.WebRootPath + "\\Images\\" + Guid.NewGuid() + extension;
+            string pathGet= "images/" + Guid.NewGuid() + extension;
+            string path = Path.Combine(webHostEnvironment.WebRootPath, pathGet);
+            //string path = webHostEnvironment.WebRootPath + "\\images\\" + Guid.NewGuid() + extension;
             using (FileStream file = new FileStream(path, FileMode.Create))
             {
                 await rasm.CopyToAsync(file);
             }
-            return path;
+            return pathGet;
         }
     }
 }

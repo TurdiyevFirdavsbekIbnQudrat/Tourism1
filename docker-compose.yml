@@ -1,0 +1,37 @@
+version: '3.4'
+networks:
+  backend:
+services:
+  turismdb:
+    container_name: turism-dbcontainer
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=pa@2or$%%dd
+    networks:
+      - backend
+    ports:
+      - 7150:1433
+     
+  tourismgateway:
+    image: ${DOCKER_REGISTRY-}tourismgateway
+    build:
+      context: .
+      dockerfile: src/TourismGateway/Dockerfile
+    networks:
+      - backend
+    ports:
+      - 2145:80
+
+  tourism.api:
+    image: ${DOCKER_REGISTRY-}tourismapi
+    build:
+      context: .
+      dockerfile: src/Tourism.API/Dockerfile
+    networks:
+      - backend
+    environment:
+      - DB_HOST=turismdb
+      - DB_NAME=TurismDb
+      - DB_SA_PASSWORD=pa@2or$%%dd
+
