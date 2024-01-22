@@ -1,10 +1,6 @@
-﻿using MediatR;
-using Toursim.Domain.Entities;
-using Toursim.Domain.Enums;
-
-namespace Tourism.Application.UseCases.FoydalanuvchiUseCases.Commands
+﻿namespace Tourism.API.Dtos.FoydalanuvchiDto
 {
-    public class CreateFoydalanuvchiCommand : IRequest<Foydalanuvchi>
+    public class CreateFoydalanuvchiDto
     {
 
         public string ism { get; set; }

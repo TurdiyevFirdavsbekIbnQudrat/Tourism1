@@ -30,7 +30,7 @@ namespace Tourism.Application.UseCases.FoydalanuvchiUseCases.Handlers
             try
             {
                 await _tourism.foydalanuvchilar.AddAsync(command);
-                _tourism.SaveChangesAsync(cancellationToken);
+               await _tourism.SaveChangesAsync(cancellationToken);
                 return command;
             }
             catch

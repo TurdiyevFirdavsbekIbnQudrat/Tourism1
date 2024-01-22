@@ -22,10 +22,11 @@ namespace Tourism.API.Controllers
         }
         //    [Authorize(Roles = "Admin")]
 
-        [Authorize(Roles = "admin,foydalanuvchi")]
+      //  [Authorize(Roles = "admin,foydalanuvchi")]
         [HttpPost]
         public async ValueTask<IActionResult> CreateFoydalanuvchiAsync(CreateFoydalanuvchiCommand command)
         {
+            
             var result = await mediator.Send(command);
             return Ok(result);
         }
